@@ -12,7 +12,7 @@ export class Post {
   @Prop({ required: true })
   password: string;
 
-  @Prop({ type: MSchema.Types.ObjectId, reg: User.name })
+  @Prop({ type: MSchema.Types.ObjectId, ref: User.name })
   author: User;
 }
 
