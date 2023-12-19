@@ -22,4 +22,9 @@ export class ReviewController {
   async getByProduct(@Param() productId: string) {
     return this.reviewService.findByProductId(productId);
   }
+
+  @Delete('byProduct/:productId')
+  async deleteByProductId(@Param() productId: string) {
+    await this.reviewService.deleteByProductId(productId);
+  }
 }
