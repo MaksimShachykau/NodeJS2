@@ -21,9 +21,6 @@ export class ProductModel extends TimeStamps {
   link: string;
 
   @prop()
-  initialRating: number;
-
-  @prop()
   price: number;
 
   @prop()
