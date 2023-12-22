@@ -29,7 +29,19 @@ export class TopPageService {
     return this.topPageModel.findByIdAndUpdate(id, dto, { new: true }).exec();
   }
 
-  async findTopPage(dto: FindTopPageDto) {
-    return this.topPageModel.find(dto, { alias: 1, secondCategory: 1, title: 1 }).exec();
+  async findByCategories({ firstCategory }: FindTopPageDto) {
+    return await this.topPageModel
+      .aggregate()
+      .match({ firstCategory })
+      .group({
+        _id: '$secondCategory',
+        pages: {
+          $push: { alias: '$alias', title: '$title' },
+        },
+      });
+  }
+
+  async findTopPageByText(text: string) {
+    return this.topPageModel.find({ $text: { $search: text, $caseSensitive: false } }).exec();
   }
 }
