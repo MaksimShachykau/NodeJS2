@@ -42,6 +42,9 @@ export class TopPageModel extends TimeStamps {
   title: string;
 
   @prop()
+  alias: string;
+
+  @prop()
   category: string;
 
   @prop({ type: () => HhData })
