@@ -9,7 +9,6 @@ import { ReviewModule } from 'src/review/review.module';
 @Injectable()
 export class ProductService {
   constructor(@InjectModel(ProductModel) private readonly productModel: ModelType<ProductModel>) {}
-
   async create(dto: CreateProductDto) {
     return this.productModel.create(dto);
   }
