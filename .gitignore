@@ -15,6 +15,7 @@ lerna-debug.log*
 .DS_Store
 .env
 mongo-data-4.4
+upload
 
 # Tests
 /coverage
