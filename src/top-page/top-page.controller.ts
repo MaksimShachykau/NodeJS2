@@ -25,6 +25,7 @@ export class TopPageController {
   constructor(private readonly topPageService: TopPageService) {}
 
   @UseGuards(JwtAuthGuard)
+  @UsePipes(new ValidationPipe())
   @Post('create')
   async create(@Body() dto: TopPageModelDto) {
     return this.topPageService.createTopPage(dto);
